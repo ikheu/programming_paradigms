@@ -1,4 +1,4 @@
-#include <srdlib.h>
+#include <stdlib.h>
 #include <string.h>
 #include "stack.h"
 
