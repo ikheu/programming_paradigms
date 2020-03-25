@@ -61,9 +61,29 @@ int test_struct1(struct fraction* f) {
     return 0;
 }
 
+int test_int() {
+    int arr[] = {1,2,3,4,5};
+    void * vp = arr;
+    printf("%d\n", *(arr+1));
+    printf("%d\n", *((int*)vp + 1));
+}
+
+int test_string() {
+    char* names[] = {"Alice", "Tom", "Bob"};
+    char* she = "Alice";
+    void * vp = names;
+    printf("%s\n", she);
+    printf("%s\n", names[0]);
+    printf("%s\n", *(names + 1));
+    printf("%s\n", *((char**)vp));
+    printf("%s\n", *((char**)vp + 1));
+}
+
 int main() {
-    test_struct();
-    test_arr();
-    struct_with_arr();
+    // test_struct();
+    // test_arr();
+    // struct_with_arr();
+    // test_int();
+    test_string();
     return 0;
 }
