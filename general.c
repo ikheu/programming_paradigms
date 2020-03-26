@@ -90,7 +90,7 @@ int intcmp(void* ele1, void* ele2) {
 }
 
 int strcmp1(void *ele1, void* ele2) {
-    return strcmp(ele1, *(char**)ele2);
+    return strcmp(*(char**)ele1, *(char**)ele2);
 }
 
 int test_lsearch() {
@@ -110,15 +110,15 @@ int test_lsearch_v1() {
     int* index;
     char* names[] = {"Bob", "Tom", "Alice"};
     char* he = "Tom";
-    char* targetUser;
+    char** targetUser;
     index = (int*) lsearch_v1(&target, arr, 3, sizeof(int), intcmp);
     if (index != NULL) 
         printf("%d\n", *index);
     else
         printf("not found");
-    targetUser = lsearch_v1(he, names, 3, sizeof(char*), (int (*)(void *, void *))strcmp1);
+    targetUser = lsearch_v1(&he, names, 3, sizeof(char*), (int (*)(void *, void *))strcmp1);
     if (targetUser != NULL) 
-        printf("%s\n", *(char**)targetUser);
+        printf("%s\n", *targetUser);
     else
         printf("not found");
 
